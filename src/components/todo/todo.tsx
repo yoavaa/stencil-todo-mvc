@@ -20,11 +20,9 @@ export class Todo {
     if (event.keyCode !== ENTER_KEY) {
       return;
     }
-
     event.preventDefault();
 
     let val = this.newTodo.trim();
-
     if (val) {
       this.model.addTodo(val);
       this.newTodo = '';
@@ -95,7 +93,7 @@ export class Todo {
           onEdit={ev => this.edit(ev.detail)}
           editing={this.editing === todo.id}
           onSave={ev => this.save(ev.detail.todoId, ev.detail.text)}
-          onCancel={this.cancel}
+          onCancel={_ => this.cancel()}
         />
       );
     }, this);

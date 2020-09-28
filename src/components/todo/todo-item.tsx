@@ -23,7 +23,7 @@ export class TodoItem {
 
   handleSubmit() {
     let text = this.editText.trim();
-    if (text) {
+    if (text && this.editing) {
       this.save.emit({todoId: this.todo.id, text});
       this.editText = text;
     } else {
@@ -81,8 +81,8 @@ export class TodoItem {
         <input
           class="edit"
           value={this.editText}
-          onBlur={this.handleSubmit}
-          onChange={ev => this.handleChange(ev)}
+          onBlur={_ => this.handleSubmit()}
+          onInput={ev => this.handleChange(ev)}
           onKeyDown={ev => this.handleKeyDown(ev)}
         />
       </li>
