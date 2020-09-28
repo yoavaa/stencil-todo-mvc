@@ -64,6 +64,20 @@ export class Todo {
     this.model.toggleAll(checked);
   }
 
+  // noinspection JSMethodCanBeStatic
+  componentWillLoad() {
+    window.addEventListener("hashchange", (ev) => {
+      let newURL = ev.newURL;
+      let tokens = newURL.split('#');
+      let hash = tokens.length > 1?tokens[1]:'/all';
+      switch (hash) {
+        case '/active': this.nowShowing = ACTIVE_TODOS; break;
+        case '/completed': this.nowShowing = COMPLETED_TODOS; break;
+        default: this.nowShowing = ALL_TODOS;
+      }
+    }, false);
+  }
+
   render() {
     let main, footer;
 
