@@ -39,8 +39,8 @@ export class Todo {
     this.model.destroy(todoId);
   }
 
-  edit(todo) {
-    this.editing = todo.id;
+  edit(todoId) {
+    this.editing = todoId;
   }
 
   save(todoId, text) {

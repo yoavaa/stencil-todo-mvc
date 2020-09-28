@@ -59,7 +59,7 @@ declare namespace LocalJSX {
         "editing"?: boolean;
         "onCancel"?: (event: CustomEvent<void>) => void;
         "onDestroy"?: (event: CustomEvent<string>) => void;
-        "onEdit"?: (event: CustomEvent<void>) => void;
+        "onEdit"?: (event: CustomEvent<string>) => void;
         "onSave"?: (event: CustomEvent<{
             todoId: string;
             text: string;

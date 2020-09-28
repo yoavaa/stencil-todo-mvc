@@ -17,7 +17,7 @@ export class TodoItem {
   @State() editText: string;
   @Event() toggle: EventEmitter<string>;
   @Event() destroy: EventEmitter<string>;
-  @Event() edit: EventEmitter<void>;
+  @Event() edit: EventEmitter<string>;
   @Event() save: EventEmitter<{todoId: string, text: string}>;
   @Event() cancel: EventEmitter<void>;
 
@@ -52,7 +52,7 @@ export class TodoItem {
   }
 
   handleEdit() {
-    this.edit.emit();
+    this.edit.emit(this.todo.id);
     this.editText = this.todo.title;
   }
 
