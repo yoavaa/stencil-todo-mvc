@@ -15,8 +15,8 @@
     "loader/"
   ],
   "scripts": {
-    "build": "stencil build --docs",
-    "github-site": "npm run build && git checkout gh-pages && cp -R www/* . && git add build && git add index.html && git commit -m\"site update\" && git checkout master",
+    "build": "stencil build --docs && cp src/index.css www/index.css",
+    "github-site": "npm run build && git checkout gh-pages && rm -R build && cp -R www/* . && git add build && git add index.html && git commit -m\"site update\" && git checkout master",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
