@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "build": "stencil build --docs",
-    "github-site": "npm run build && git checkout gh-pages && cp www . && git add build && git add index.html && git commit -m\"site update\" && git checkout master",
+    "github-site": "npm run build && git checkout gh-pages && cp -R www/* . && git add build && git add index.html && git commit -m\"site update\" && git checkout master",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
